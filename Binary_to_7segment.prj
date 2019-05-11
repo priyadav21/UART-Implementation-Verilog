@@ -1,0 +1,3 @@
+verilog work "seven_segment_driver.v"
+verilog work "Binary_to_BCD.v"
+verilog work "Binary_to_7segment.v"

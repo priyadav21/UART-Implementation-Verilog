@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Hp/Desktop/Priya/Projects/UART/Mux_4_1.xst" -ofn "C:/Users/Hp/Desktop/Priya/Projects/UART/Mux_4_1.syr" 

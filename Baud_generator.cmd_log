@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Hp/Desktop/Priya/Projects/UART/Baud_generator.xst" -ofn "C:/Users/Hp/Desktop/Priya/Projects/UART/Baud_generator.syr" 

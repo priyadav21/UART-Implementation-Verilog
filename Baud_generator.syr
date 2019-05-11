@@ -1,0 +1,435 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> Reading design: Baud_generator.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Baud_generator.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Baud_generator"
+Output Format                      : NGC
+Target Device                      : xc3s100e-5-cp132
+
+---- Source Options
+Top Module Name                    : Baud_generator
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Baud_generator.v" in library work
+Module <Baud_generator> compiled
+No errors in compilation
+Analysis of file <"Baud_generator.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Baud_generator> in library <work> with parameters.
+	baud_rate1 = "00000000000000001010001011000011"
+	baud_rate2 = "00000000000000000101000101100010"
+	baud_rate3 = "00000000000000000010100010110001"
+	baud_rate4 = "00000000000000000001010001011001"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Baud_generator>.
+	baud_rate1 = 32'sb00000000000000001010001011000011
+	baud_rate2 = 32'sb00000000000000000101000101100010
+	baud_rate3 = 32'sb00000000000000000010100010110001
+	baud_rate4 = 32'sb00000000000000000001010001011001
+Module <Baud_generator> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Baud_generator>.
+    Related source file is "Baud_generator.v".
+    Found 4x16-bit ROM for signal <mod_count>.
+    Found 1-bit register for signal <baud_out>.
+    Found 16-bit up counter for signal <count>.
+    Found 16-bit comparator equal for signal <count$cmp_eq0000> created at line 30.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Baud_generator> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 4x16-bit ROM                                          : 1
+# Counters                                             : 1
+ 16-bit up counter                                     : 1
+# Registers                                            : 1
+ 1-bit register                                        : 1
+# Comparators                                          : 1
+ 16-bit comparator equal                               : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 4x16-bit ROM                                          : 1
+# Counters                                             : 1
+ 16-bit up counter                                     : 1
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+# Comparators                                          : 1
+ 16-bit comparator equal                               : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Baud_generator> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Baud_generator, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 17
+ Flip-Flops                                            : 17
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Baud_generator.ngr
+Top Level Output File Name         : Baud_generator
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 5
+
+Cell Usage :
+# BELS                             : 73
+#      GND                         : 1
+#      INV                         : 3
+#      LUT2                        : 5
+#      LUT3                        : 16
+#      LUT4                        : 7
+#      MUXCY                       : 24
+#      VCC                         : 1
+#      XORCY                       : 16
+# FlipFlops/Latches                : 17
+#      FDC                         : 16
+#      FDE                         : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 4
+#      IBUF                        : 3
+#      OBUF                        : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100ecp132-5 
+
+ Number of Slices:                       16  out of    960     1%  
+ Number of Slice Flip Flops:             17  out of   1920     0%  
+ Number of 4 input LUTs:                 31  out of   1920     1%  
+ Number of IOs:                           5
+ Number of bonded IOBs:                   5  out of     83     6%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 17    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset_inv(reset_inv1_INV_0:O)      | NONE(count_0)          | 16    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 6.201ns (Maximum Frequency: 161.271MHz)
+   Minimum input arrival time before clock: 8.198ns
+   Maximum output required time after clock: 4.040ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.201ns (frequency: 161.271MHz)
+  Total number of paths / destination ports: 2584 / 17
+-------------------------------------------------------------------------
+Delay:               6.201ns (Levels of Logic = 27)
+  Source:            count_2 (FF)
+  Destination:       count_15 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: count_2 to count_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.514   0.380  count_2 (count_2)
+     INV:I->O              1   0.612   0.000  Mcompar_count_cmp_eq0000_lut<0>_INV_0 (Mcompar_count_cmp_eq0000_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  Mcompar_count_cmp_eq0000_cy<0> (Mcompar_count_cmp_eq0000_cy<0>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<1> (Mcompar_count_cmp_eq0000_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<2> (Mcompar_count_cmp_eq0000_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<3> (Mcompar_count_cmp_eq0000_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<4> (Mcompar_count_cmp_eq0000_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<5> (Mcompar_count_cmp_eq0000_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<6> (Mcompar_count_cmp_eq0000_cy<6>)
+     MUXCY:CI->O           1   0.052   0.000  Mcompar_count_cmp_eq0000_cy<7> (Mcompar_count_cmp_eq0000_cy<7>)
+     MUXCY:CI->O          18   0.289   0.938  Mcompar_count_cmp_eq0000_cy<8> (Mcompar_count_cmp_eq0000_cy<8>)
+     LUT3:I2->O            1   0.612   0.000  Mcount_count_lut<0> (Mcount_count_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  Mcount_count_cy<0> (Mcount_count_cy<0>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<1> (Mcount_count_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<2> (Mcount_count_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<3> (Mcount_count_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<4> (Mcount_count_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<5> (Mcount_count_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<6> (Mcount_count_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<7> (Mcount_count_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<8> (Mcount_count_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<9> (Mcount_count_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<10> (Mcount_count_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<11> (Mcount_count_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<12> (Mcount_count_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<13> (Mcount_count_cy<13>)
+     MUXCY:CI->O           0   0.051   0.000  Mcount_count_cy<14> (Mcount_count_cy<14>)
+     XORCY:CI->O           1   0.699   0.000  Mcount_count_xor<15> (Mcount_count15)
+     FDC:D                     0.268          count_15
+    ----------------------------------------
+    Total                      6.201ns (4.883ns logic, 1.318ns route)
+                                       (78.7% logic, 21.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 3367 / 18
+-------------------------------------------------------------------------
+Offset:              8.198ns (Levels of Logic = 26)
+  Source:            baud_select<1> (PAD)
+  Destination:       count_15 (FF)
+  Destination Clock: clk rising
+
+  Data Path: baud_select<1> to count_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             8   1.106   0.795  baud_select_1_IBUF (Mrom_mod_count4)
+     LUT2:I0->O            2   0.612   0.532  Mrom_mod_count61 (Mrom_mod_count6)
+     LUT4:I0->O            1   0.612   0.000  Mcompar_count_cmp_eq0000_lut<3> (Mcompar_count_cmp_eq0000_lut<3>)
+     MUXCY:S->O            1   0.404   0.000  Mcompar_count_cmp_eq0000_cy<3> (Mcompar_count_cmp_eq0000_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<4> (Mcompar_count_cmp_eq0000_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<5> (Mcompar_count_cmp_eq0000_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Mcompar_count_cmp_eq0000_cy<6> (Mcompar_count_cmp_eq0000_cy<6>)
+     MUXCY:CI->O           1   0.052   0.000  Mcompar_count_cmp_eq0000_cy<7> (Mcompar_count_cmp_eq0000_cy<7>)
+     MUXCY:CI->O          18   0.289   0.938  Mcompar_count_cmp_eq0000_cy<8> (Mcompar_count_cmp_eq0000_cy<8>)
+     LUT3:I2->O            1   0.612   0.000  Mcount_count_lut<0> (Mcount_count_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  Mcount_count_cy<0> (Mcount_count_cy<0>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<1> (Mcount_count_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<2> (Mcount_count_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<3> (Mcount_count_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<4> (Mcount_count_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<5> (Mcount_count_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<6> (Mcount_count_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<7> (Mcount_count_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<8> (Mcount_count_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<9> (Mcount_count_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<10> (Mcount_count_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<11> (Mcount_count_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<12> (Mcount_count_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  Mcount_count_cy<13> (Mcount_count_cy<13>)
+     MUXCY:CI->O           0   0.051   0.000  Mcount_count_cy<14> (Mcount_count_cy<14>)
+     XORCY:CI->O           1   0.699   0.000  Mcount_count_xor<15> (Mcount_count15)
+     FDC:D                     0.268          count_15
+    ----------------------------------------
+    Total                      8.198ns (5.932ns logic, 2.265ns route)
+                                       (72.4% logic, 27.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.040ns (Levels of Logic = 1)
+  Source:            baud_out (FF)
+  Destination:       baud_out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: baud_out to baud_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.514   0.357  baud_out (baud_out_OBUF)
+     OBUF:I->O                 3.169          baud_out_OBUF (baud_out)
+    ----------------------------------------
+    Total                      4.040ns (3.683ns logic, 0.357ns route)
+                                       (91.2% logic, 8.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 25.00 secs
+Total CPU time to Xst completion: 24.84 secs
+ 
+--> 
+
+Total memory usage is 4533900 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

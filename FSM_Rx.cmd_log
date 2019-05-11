@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/Hp/Desktop/Priya/Projects/UART/FSM_Rx.xst" -ofn "C:/Users/Hp/Desktop/Priya/Projects/UART/FSM_Rx.syr" 
+xst -intstyle ise -ifn "C:/Users/Hp/Desktop/Priya/Projects/UART/FSM_Rx.xst" -ofn "C:/Users/Hp/Desktop/Priya/Projects/UART/FSM_Rx.syr" 
