@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "C:/Users/Hp/Desktop/Priya/Projects/UART/Transmitter_module.xst" -ofn "C:/Users/Hp/Desktop/Priya/Projects/UART/Transmitter_module.syr" 
+xst -intstyle ise -ifn "C:/Users/Hp/Desktop/Priya/Projects/UART/Transmitter_module.xst" -ofn "C:/Users/Hp/Desktop/Priya/Projects/UART/Transmitter_module.syr" 
+xst -intstyle ise -ifn "C:/Users/Hp/Desktop/Priya/Projects/UART/Transmitter_module.xst" -ofn "C:/Users/Hp/Desktop/Priya/Projects/UART/Transmitter_module.syr" 

@@ -1,0 +1,474 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Reading design: Transmitter_module.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Transmitter_module.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Transmitter_module"
+Output Format                      : NGC
+Target Device                      : xc3s100e-5-cp132
+
+---- Source Options
+Top Module Name                    : Transmitter_module
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "PISO.v" in library work
+Compiling verilog file "Parity_generator.v" in library work
+Module <PISO> compiled
+Compiling verilog file "Mux_4_1.v" in library work
+Module <Parity_generator> compiled
+Compiling verilog file "FSM_Tx.v" in library work
+Module <Mux_4_1> compiled
+Compiling verilog file "Transmitter_module.v" in library work
+Module <FSM_Tx> compiled
+Module <Transmitter_module> compiled
+No errors in compilation
+Analysis of file <"Transmitter_module.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Transmitter_module> in library <work>.
+
+Analyzing hierarchy for module <FSM_Tx> in library <work> with parameters.
+	data = "010"
+	idle = "000"
+	parity = "011"
+	start = "001"
+	stop = "100"
+
+Analyzing hierarchy for module <Parity_generator> in library <work>.
+
+Analyzing hierarchy for module <PISO> in library <work>.
+
+Analyzing hierarchy for module <Mux_4_1> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Transmitter_module>.
+Module <Transmitter_module> is correct for synthesis.
+ 
+Analyzing module <FSM_Tx> in library <work>.
+	data = 3'b010
+	idle = 3'b000
+	parity = 3'b011
+	start = 3'b001
+	stop = 3'b100
+Module <FSM_Tx> is correct for synthesis.
+ 
+Analyzing module <Parity_generator> in library <work>.
+Module <Parity_generator> is correct for synthesis.
+ 
+Analyzing module <PISO> in library <work>.
+Module <PISO> is correct for synthesis.
+ 
+Analyzing module <Mux_4_1> in library <work>.
+Module <Mux_4_1> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <FSM_Tx>.
+    Related source file is "FSM_Tx.v".
+    Found finite state machine <FSM_0> for signal <p_s>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit register for signal <count>.
+    Found 3-bit adder for signal <count$addsub0000> created at line 62.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <FSM_Tx> synthesized.
+
+
+Synthesizing Unit <Parity_generator>.
+    Related source file is "Parity_generator.v".
+    Found 1-bit register for signal <parity_bit>.
+    Found 1-bit xor2 for signal <parity_bit$xor0000>.
+    Found 1-bit xor2 for signal <parity_bit$xor0001>.
+    Found 1-bit xor2 for signal <parity_bit$xor0002>.
+    Found 1-bit xor2 for signal <parity_bit$xor0003>.
+    Found 1-bit xor2 for signal <parity_bit$xor0004>.
+    Found 1-bit xor2 for signal <parity_bit$xor0005>.
+    Found 1-bit xor2 for signal <parity_bit$xor0006>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <Parity_generator> synthesized.
+
+
+Synthesizing Unit <PISO>.
+    Related source file is "PISO.v".
+    Found 8-bit register for signal <temp_reg>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <PISO> synthesized.
+
+
+Synthesizing Unit <Mux_4_1>.
+    Related source file is "Mux_4_1.v".
+Unit <Mux_4_1> synthesized.
+
+
+Synthesizing Unit <Transmitter_module>.
+    Related source file is "Transmitter_module.v".
+Unit <Transmitter_module> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 3-bit adder                                           : 1
+# Registers                                            : 3
+ 1-bit register                                        : 1
+ 3-bit register                                        : 1
+ 8-bit register                                        : 1
+# Xors                                                 : 7
+ 1-bit xor2                                            : 7
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <F1/p_s/FSM> on signal <p_s[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+-------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 1
+ 3-bit adder                                           : 1
+# Registers                                            : 12
+ Flip-Flops                                            : 12
+# Xors                                                 : 7
+ 1-bit xor2                                            : 7
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Transmitter_module> ...
+
+Optimizing unit <Parity_generator> ...
+
+Optimizing unit <PISO> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Transmitter_module, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 15
+ Flip-Flops                                            : 15
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Transmitter_module.ngr
+Top Level Output File Name         : Transmitter_module
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 12
+
+Cell Usage :
+# BELS                             : 26
+#      INV                         : 1
+#      LUT2                        : 5
+#      LUT2_L                      : 2
+#      LUT3                        : 4
+#      LUT4                        : 13
+#      MUXF5                       : 1
+# FlipFlops/Latches                : 15
+#      FDC                         : 6
+#      FDCE                        : 8
+#      FDE                         : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 11
+#      IBUF                        : 10
+#      OBUF                        : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100ecp132-5 
+
+ Number of Slices:                       13  out of    960     1%  
+ Number of Slice Flip Flops:             15  out of   1920     0%  
+ Number of 4 input LUTs:                 25  out of   1920     1%  
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of     83    14%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 15    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+----------------------------------------------+------------------------+-------+
+Control Signal                                | Buffer(FF name)        | Load  |
+----------------------------------------------+------------------------+-------+
+F1/p_s_FSM_Acst_FSM_inv(P2/reset_inv1_INV_0:O)| NONE(F1/count_0)       | 14    |
+----------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 3.351ns (Maximum Frequency: 298.387MHz)
+   Minimum input arrival time before clock: 3.639ns
+   Maximum output required time after clock: 5.975ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.351ns (frequency: 298.387MHz)
+  Total number of paths / destination ports: 64 / 23
+-------------------------------------------------------------------------
+Delay:               3.351ns (Levels of Logic = 1)
+  Source:            F1/p_s_FSM_FFd3 (FF)
+  Destination:       P2/temp_reg_7 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: F1/p_s_FSM_FFd3 to P2/temp_reg_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             17   0.514   1.045  F1/p_s_FSM_FFd3 (F1/p_s_FSM_FFd3)
+     LUT2:I0->O            9   0.612   0.697  F1/p_s_FSM_FFd2-In2 (F1/p_s_FSM_FFd2-In)
+     FDCE:CE                   0.483          P2/temp_reg_0
+    ----------------------------------------
+    Total                      3.351ns (1.609ns logic, 1.742ns route)
+                                       (48.0% logic, 52.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 18 / 10
+-------------------------------------------------------------------------
+Offset:              3.639ns (Levels of Logic = 3)
+  Source:            data_in<4> (PAD)
+  Destination:       P1/parity_bit (FF)
+  Destination Clock: clk rising
+
+  Data Path: data_in<4> to P1/parity_bit
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.106   0.532  data_in_4_IBUF (data_in_4_IBUF)
+     LUT4:I0->O            1   0.612   0.509  P1/parity_bit_not000121 (P1/N2)
+     LUT3:I0->O            1   0.612   0.000  P1/parity_bit_not00011 (P1/parity_bit_not0001)
+     FDE:D                     0.268          P1/parity_bit
+    ----------------------------------------
+    Total                      3.639ns (2.598ns logic, 1.041ns route)
+                                       (71.4% logic, 28.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 7 / 1
+-------------------------------------------------------------------------
+Offset:              5.975ns (Levels of Logic = 3)
+  Source:            F1/p_s_FSM_FFd3 (FF)
+  Destination:       tx_out (PAD)
+  Source Clock:      clk rising
+
+  Data Path: F1/p_s_FSM_FFd3 to tx_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             17   0.514   1.045  F1/p_s_FSM_FFd3 (F1/p_s_FSM_FFd3)
+     LUT4:I0->O            1   0.612   0.000  M1/z_F (N10)
+     MUXF5:I0->O           1   0.278   0.357  M1/z (tx_out_OBUF)
+     OBUF:I->O                 3.169          tx_out_OBUF (tx_out)
+    ----------------------------------------
+    Total                      5.975ns (4.573ns logic, 1.402ns route)
+                                       (76.5% logic, 23.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 25.00 secs
+Total CPU time to Xst completion: 25.11 secs
+ 
+--> 
+
+Total memory usage is 4550032 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

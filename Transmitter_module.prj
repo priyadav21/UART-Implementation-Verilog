@@ -1,0 +1,5 @@
+verilog work "PISO.v"
+verilog work "Parity_generator.v"
+verilog work "Mux_4_1.v"
+verilog work "FSM_Tx.v"
+verilog work "Transmitter_module.v"

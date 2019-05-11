@@ -1,0 +1,43 @@
+//cathode
+NET "cathode_value[6]" LOC =L14;
+NET "cathode_value[5]" LOC =H12;
+NET "cathode_value[4]" LOC =N14;
+NET "cathode_value[3]" LOC =N11;
+NET "cathode_value[2]" LOC =P12;
+NET "cathode_value[1]" LOC =L13;
+NET "cathode_value[0]" LOC =M12;
+
+//anode
+NET "anode_value[0]" LOC =F12;
+NET "anode_value[1]" LOC =J12;
+NET "anode_value[2]" LOC =M13;
+NET "anode_value[3]" LOC =K14;
+
+//data_in 
+NET "data_in[7]" LOC =N3;
+NET "data_in[6]" LOC =E2;
+NET "data_in[5]" LOC =F3;
+NET "data_in[4]" LOC =G3;
+NET "data_in[3]" LOC =B4;
+NET "data_in[2]" LOC =K3;
+NET "data_in[1]" LOC =L3;
+NET "data_in[0]" LOC =P11;
+
+//clock
+NET "clk" LOC =B8;
+
+//reset
+NET "reset" LOC =A7;
+
+//baud_select
+NET "baud_select[1]" LOC =M4;
+NET "baud_select[0]" LOC =C11;
+
+//tx_start
+
+NET "tx_start" LOC =G12;
+
+
+
+
+

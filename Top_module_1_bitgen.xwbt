@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Hp\Desktop\Priya\Projects\UART\Top_module_1.ncd
+OUTFILE=C:\Users\Hp\Desktop\Priya\Projects\UART\Top_module_1.bit
+FAMILY=Spartan3E
+PART=xc3s100e-5cp132
+WORKINGDIR=C:\Users\Hp\Desktop\Priya\Projects\UART
+LICENSE=WebPack
+USER_INFO=210861842_0_0_633
