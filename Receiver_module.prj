@@ -1,0 +1,6 @@
+verilog work "Stop_bit_checker.v"
+verilog work "Start_bit_checker.v"
+verilog work "SIPO.v"
+verilog work "Parity_checker_odd.v"
+verilog work "FSM_Rx.v"
+verilog work "Receiver_module.v"
